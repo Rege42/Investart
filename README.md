@@ -1,2 +1,2 @@
 # Investart
-Back side of Investart project
+Код для проекта краудфандинговой платформы для IT проектов Investart
