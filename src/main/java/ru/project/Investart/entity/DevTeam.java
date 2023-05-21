@@ -1,10 +1,9 @@
 package ru.project.Investart.entity;
 
 
+import jakarta.persistence.*;
 import lombok.*;
 
-import javax.persistence.*;
-import java.util.Objects;
 
 @Getter
 @Setter
@@ -27,27 +26,12 @@ public class DevTeam {
     private String nameTeamLead;
 
     @NonNull
-    private String phoneNumber;
+    private double rating;
 
+    @OneToOne
+    @JoinColumn(name = "user_id")
     @NonNull
-    private String email;
-
-    @NonNull
-    private String login;
-    @NonNull
-    private String password;
+    private User user;
 
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        DevTeam devTeam = (DevTeam) o;
-        return Objects.equals(id, devTeam.id) && name.equals(devTeam.name) && phoneNumber.equals(devTeam.phoneNumber) && email.equals(devTeam.email) && login.equals(devTeam.login) && password.equals(devTeam.password);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, phoneNumber, email, login, password);
-    }
 }

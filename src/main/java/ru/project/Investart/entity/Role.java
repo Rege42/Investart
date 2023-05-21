@@ -3,7 +3,7 @@ package ru.project.Investart.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import java.util.Date;
+import java.util.ArrayList;
 
 @Getter
 @Setter
@@ -12,24 +12,16 @@ import java.util.Date;
 @RequiredArgsConstructor
 @ToString
 @Entity
-@Table(name = "startups")
-public class Startup {
+@Table(name = "roles")
+public class Role {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NonNull
     private String name;
 
-    @NonNull
-    private double needMoney;
 
-    @NonNull
-    private Date endDate;
 
-    @OneToOne
-    @JoinColumn(name = "author_id")
-    @NonNull
-    private DevTeam author;
 }
