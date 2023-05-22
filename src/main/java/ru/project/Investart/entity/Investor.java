@@ -1,11 +1,8 @@
 package ru.project.Investart.entity;
 
 
+import jakarta.persistence.*;
 import lombok.*;
-
-import javax.persistence.*;
-import java.util.List;
-import java.util.Objects;
 
 @Getter
 @Setter
@@ -22,28 +19,12 @@ public class Investor {
     private Long id;
 
     @NonNull
-    private String login;
+    private double rating;
 
     @NonNull
-    private String email;
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
-    @NonNull
-    private String phoneNumber;
-
-    @NonNull
-    private String password;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Investor investor = (Investor) o;
-        return Objects.equals(id, investor.id) && login.equals(investor.login) && email.equals(investor.email) && phoneNumber.equals(investor.phoneNumber) && password.equals(investor.password);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, login, email, phoneNumber, password);
-    }
 }
